@@ -1,0 +1,57 @@
+-- use e_commerce;
+-- SELECT
+--     SUM(total_amount) AS TotalRevenue,
+--     AVG(total_amount) AS AverageOrderValue
+-- FROM Orders;
+-- SELECT
+--     COUNT(*) AS TotalOrdersPlaced,
+--     COUNT(shipping_address) AS OrdersWithAddress
+-- FROM Orders;
+-- SELECT
+--     COUNT(DISTINCT product_id) AS NumberOfUniqueProductsOrdered
+-- FROM Order_Items;
+-- SELECT
+--     customer_id,
+--     COUNT(order_id) AS TotalOrders
+-- FROM Orders
+-- GROUP BY customer_id;
+-- SELECT
+--     product_id,
+--     SUM(quantity) AS TotalQuantitySold,
+--     AVG(unit_price) AS AverageUnitPrice
+-- FROM Order_Items
+-- GROUP BY product_id;
+-- SELECT
+--     customer_id,
+--     MIN(order_date) AS FirstOrderDate,
+--     MAX(order_date) AS LastOrderDate
+-- FROM Orders
+-- GROUP BY customer_id;
+-- SELECT
+--     customer_id,
+--     COUNT(order_id) AS NumberOfOrders
+-- FROM Orders
+-- GROUP BY customer_id
+-- HAVING COUNT(order_id) > 1;
+-- SELECT
+--     customer_id,
+--     COUNT(order_id) AS OrdersOnSpecificDate
+-- FROM Orders
+-- WHERE DATE(order_date) = '2025-10-18'
+-- GROUP BY customer_id
+-- HAVING COUNT(order_id) = 1;
+-- SELECT
+--     product_id,
+--     MAX(unit_price) AS HighestPricePaid
+-- FROM Order_Items
+-- GROUP BY product_id;
+-- SELECT
+--     order_id,
+--     product_id,
+--     unit_price,
+--     quantity
+-- FROM Order_Items
+-- GROUP BY order_id, product_id, unit_price, quantity;
+-- SELECT
+--     ROUND(AVG(price), 2) AS RoundedAverageProductPrice
+-- FROM Products;
