@@ -1,0 +1,38 @@
+
+## 1. What is GROUP BY?
+The **GROUP BY** clause is used to group rows that have the same values in specified columns into a summary row. [cite_start]It is essential when using aggregate functions (`SUM`, `COUNT`, `AVG`, etc.) to calculate a single summary value for each distinct group, rather than for the entire table.
+
+## 2. Difference between WHERE and HAVING?
+ Feature WHERE Clause HAVING Clause 
+**Purpose** [cite_start]Filters **individual rows** before grouping and aggregation[cite: 2]. | [cite_start]Filters **groups** (the results of aggregation) after the `GROUP BY` clause[cite: 2]. |
+ **Placement** Comes before `GROUP BY`. Comes after `GROUP BY`.
+**Applicable Fields** Cannot use aggregate functions. Must use aggregate functions (or columns from the `GROUP BY` list). 
+
+## 3. How does COUNT(*) differ from COUNT(column)?
+* **COUNT(\*)**: Counts **all rows** in the result set, including those with `NULL` values in any column. It counts the number of records.
+* **COUNT(column)**: Counts the number of **non-NULL values** in the specified column. If a record has a `NULL` value in that column, it is not included in the count.
+
+## 4. Can you group by multiple columns?
+Yes, you can **group by multiple columns**[cite: 3]. When multiple columns are listed in the `GROUP BY` clause, rows are grouped based on the unique combination of values across **all** specified columns.
+
+## 5. What is ROUND() used for?
+The **ROUND()** function is a mathematical function used to round a numeric value to a specified number of decimal places or to the nearest integer[cite: 3]. It is commonly used with aggregate functions like `AVG` to present cleaner results.
+
+## 6. How do you find the highest salary by department?
+You use the **MAX()** aggregate function combined with the **GROUP BY** clause.
+* [cite_start]**Query Logic**: `SELECT department, MAX(salary) FROM Employees GROUP BY department;` [cite: 4]
+* This groups the table by `department` and then finds the maximum `salary` within each group.
+
+## 7. What is the default behavior of GROUP BY?
+The default behavior of `GROUP BY` is to collapse all rows with the same value in the specified column(s) into a **single summary row**. [cite_start]When combined with an aggregate function, the function is applied to all rows within that group[cite: 7].
+
+## 8. Explain AVG and SUM.
+[cite_start]Both are aggregate functions:
+* [cite_start]**SUM()**: Calculates the **total sum** of all values in a numeric column or expression for a group (or the entire table)[cite: 1, 8].
+* **AVG()**: Calculates the **average (arithmetic mean)** of all values in a numeric column or expression for a group (or the entire table)[cite: 1, 8].
+
+## 9. How to count distinct values?
+You count distinct values using the syntax **COUNT(DISTINCT column\_name)**. [cite_start]This ensures that duplicate values within the column are counted only once.
+
+## 10. What is an aggregate function?
+An **aggregate function** is a function that performs a calculation on a set of rows and returns a **single summary value**. [cite_start]Common aggregate functions include `SUM()`, `COUNT()`, `AVG()`, `MAX()`, and `MIN()`[cite: 1, 5].
